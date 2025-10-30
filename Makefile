@@ -1,4 +1,4 @@
-﻿DEUBG = -D_DEBUG
+﻿DEBUG = -D_DEBUG
 
 TARGET1 = rtsp_server
 TARGET2 = rtsp_pusher
@@ -11,10 +11,10 @@ CXX   = $(CROSS_COMPILE)g++
 CC    = $(CROSS_COMPILE)gcc
 STRIP = $(CROSS_COMPILE)strip
 
-INC  = -I$(shell pwd)/src/ -I$(shell pwd)/src/net -I$(shell pwd)/src/xop -I$(shell pwd)/src/3rdpart
+INC  = -I./src -I./src/net -I./src/xop -I./src/3rdpart
 LIB  =
 
-LD_FLAGS  = -lrt -pthread -lpthread -ldl -lm $(DEBUG)
+LD_FLAGS  = -lws2_32 -lwinpthread -liphlpapi -lm $(DEBUG)
 CXX_FLAGS = -std=c++11
 
 O_FLAG = -O2

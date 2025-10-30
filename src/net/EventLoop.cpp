@@ -79,19 +79,19 @@ void EventLoop::Loop()
 		switch (priority) 
 		{
 		case TASK_SCHEDULER_PRIORITY_LOW:
-			SetThreadPriority(iter->native_handle(), THREAD_PRIORITY_BELOW_NORMAL);
+			SetThreadPriority(reinterpret_cast<HANDLE>(iter->native_handle()), THREAD_PRIORITY_BELOW_NORMAL);
 			break;
 		case TASK_SCHEDULER_PRIORITY_NORMAL:
-			SetThreadPriority(iter->native_handle(), THREAD_PRIORITY_NORMAL);
+			SetThreadPriority(reinterpret_cast<HANDLE>(iter->native_handle()), THREAD_PRIORITY_NORMAL);
 			break;
 		case TASK_SCHEDULER_PRIORITYO_HIGH:
-			SetThreadPriority(iter->native_handle(), THREAD_PRIORITY_ABOVE_NORMAL);
+			SetThreadPriority(reinterpret_cast<HANDLE>(iter->native_handle()), THREAD_PRIORITY_ABOVE_NORMAL);
 			break;
 		case TASK_SCHEDULER_PRIORITY_HIGHEST:
-			SetThreadPriority(iter->native_handle(), THREAD_PRIORITY_HIGHEST);
+			SetThreadPriority(reinterpret_cast<HANDLE>(iter->native_handle()), THREAD_PRIORITY_HIGHEST);
 			break;
 		case TASK_SCHEDULER_PRIORITY_REALTIME:
-			SetThreadPriority(iter->native_handle(), THREAD_PRIORITY_TIME_CRITICAL);
+			SetThreadPriority(reinterpret_cast<HANDLE>(iter->native_handle()), THREAD_PRIORITY_TIME_CRITICAL);
 			break;
 		}
 #endif
